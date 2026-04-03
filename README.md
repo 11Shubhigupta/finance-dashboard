@@ -121,3 +121,21 @@ The application handles common edge cases such as:
   ##Screenshots
   <img width="1366" height="768" alt="Screenshot 2026-04-03 155950" src="https://github.com/user-attachments/assets/35331761-d334-47a5-803f-2c356415a48c" />
 
+  <img width="1362" height="766" alt="Screenshot 2026-04-03 160011" src="https://github.com/user-attachments/assets/c8c7339d-a5a1-4079-bb41-2c6f7c3811bc" />
+<img width="1362" height="762" alt="Screenshot 2026-04-03 160020" src="https://github.com/user-attachments/assets/36f4abd2-aee8-4cc3-9deb-05e2b65f691d" />
+<img width="1354" height="768" alt="Screenshot 2026-04-03 160029" src="https://github.com/user-attachments/assets/67278447-5a93-4b58-9471-d91250b3846e" />
+<img width="1340" height="738" alt="Screenshot 2026-04-03 160045" src="https://github.com/user-attachments/assets/ad7ebc1a-691b-4a66-897b-f6e3f0d8ec99" />
+
+light mode feature
+<img width="1366" height="768" alt="Screenshot 2026-04-03 160104" src="https://github.com/user-attachments/assets/3bdb46a8-bd8a-4133-9aa6-6baee6ba5615" />
+
+responsive 
+<img width="500" height="768" alt="Screenshot 2026-04-03 160148" src="https://github.com/user-attachments/assets/d7defa1a-a379-402a-a2dc-93250d155c24" />
+<img width="486" height="757" alt="Screenshot 2026-04-03 160203" src="https://github.com/user-attachments/assets/796c0a04-fb3d-474c-83fe-969e4d90caca" />
+
+
+
+
+
+
+
