@@ -1,0 +1,111 @@
+.charts-section { margin-bottom: 32px; }
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+}
+
+.chart-card {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.chart-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-glass);
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.chart-tab {
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.chart-tab.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.chart-container { width: 100%; }
+.pie-container { display: flex; justify-content: center; }
+
+.chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 14px;
+}
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+.pie-legend-name {
+  flex: 1;
+  color: var(--text-secondary);
+}
+.pie-legend-val {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.chart-tooltip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+}
+.tooltip-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tooltip-value {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  margin: 2px 0;
+}
+
+@media (max-width: 1100px) {
+  .charts-grid { grid-template-columns: 1fr; }
+}
