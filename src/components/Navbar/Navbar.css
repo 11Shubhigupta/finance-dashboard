@@ -14,9 +14,11 @@
   backdrop-filter: blur(12px);
   transition: left 0.3s ease;
 
-  /* ✅ prevents shifting */
+  /* ✅ IMPORTANT FIX */
   box-sizing: border-box;
-  width: auto;
+  width: calc(100% - var(--sidebar-w));
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .navbar-left { 
@@ -154,7 +156,7 @@
 }
 
 
-/* ✅ FINAL MOBILE FIX */
+/* ✅ MOBILE FIX — main fix yahi hai */
 
 @media (max-width: 900px) {
 
@@ -162,8 +164,9 @@
     left: 0;
     right: 0;
     width: 100%;
+    max-width: 100%;
     padding: 0 16px;
-    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .mobile-menu-btn { 
