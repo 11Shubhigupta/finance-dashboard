@@ -178,3 +178,35 @@ input, select { font-family: var(--font-display); outline: none; border: none; }
   .main-area { margin-left: 0 !important; }
   .content-area { padding: 20px 16px; padding-top: calc(var(--navbar-h) + 20px); }
 }
+
+
+/* ===== FINAL MOBILE LAYOUT FIX ===== */
+
+@media (max-width: 900px) {
+
+  /* Remove sidebar spacing on mobile */
+  .main-area {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Fix content alignment */
+  .content-area {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Prevent page horizontal shift */
+  html,
+  body,
+  #root,
+  .app-layout {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+}
