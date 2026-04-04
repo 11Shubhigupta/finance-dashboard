@@ -392,3 +392,72 @@
   }
 
 }
+/* ===== FINAL MOBILE SHIFT FIX ===== */
+
+@media (max-width: 768px) {
+
+  /* Prevent full page shifting */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  /* Fix section width */
+  .transactions-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-right: 0;
+  }
+
+  /* Fix table wrapper */
+  .tx-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Convert table to card layout */
+  .tx-table thead {
+    display: none;
+  }
+
+  .tx-table,
+  .tx-table tbody,
+  .tx-table tr {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tx-row {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+  }
+
+  .tx-table td {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 6px 0;
+  }
+
+  /* Fix long text overflow */
+  .td-title {
+    max-width: 65%;
+    word-break: break-word;
+  }
+
+  /* Fix buttons overflow */
+  .td-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+
+}
