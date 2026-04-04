@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FinanceProvider, useFinance } from "./context/FinanceContext";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,30 +11,77 @@ import "./index.css";
 const AppContent = () => {
   const { activeSection, darkMode, sidebarOpen } = useFinance();
 
+  /* ✅ detect mobile screen */
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth <= 900
+  );
+
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      darkMode ? "dark" : "light"
+    );
   }, [darkMode]);
+
+  /* ✅ listen resize */
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () =>
+      window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="app-layout">
       <Sidebar />
-      <div className={`main-area ${!sidebarOpen ? "sidebar-collapsed" : ""}`}>
+
+      {/* ✅ Mobile par sidebar margin remove */}
+      <div
+        className={`main-area ${
+          !sidebarOpen && !isMobile
+            ? "sidebar-collapsed"
+            : ""
+        }`}
+      >
         <Navbar />
+
         <main className="content-area">
-          {activeSection === "dashboard" && <Dashboard />}
-          {activeSection === "transactions" && <Transactions />}
+          {activeSection === "dashboard" && (
+            <Dashboard />
+          )}
+
+          {activeSection === "transactions" && (
+            <Transactions />
+          )}
+
           {activeSection === "charts" && (
             <div>
               <div className="dashboard-welcome">
                 <div>
-                  <h1 className="welcome-title" style={{ fontSize: "1.6rem" }}>Analytics</h1>
-                  <p className="section-subtitle">Visual breakdown of your finances</p>
+                  <h1
+                    className="welcome-title"
+                    style={{ fontSize: "1.6rem" }}
+                  >
+                    Analytics
+                  </h1>
+
+                  <p className="section-subtitle">
+                    Visual breakdown of your finances
+                  </p>
                 </div>
               </div>
+
               <Charts />
             </div>
           )}
-          {activeSection === "insights" && <Insights />}
+
+          {activeSection === "insights" && (
+            <Insights />
+          )}
         </main>
       </div>
     </div>
