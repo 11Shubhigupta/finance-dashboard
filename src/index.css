@@ -49,7 +49,11 @@
   --shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 html { scroll-behavior: smooth; }
 
@@ -58,16 +62,9 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-button { cursor: pointer; font-family: var(--font-display); border: none; outline: none; }
-input, select { font-family: var(--font-display); outline: none; border: none; }
+/* Layout */
 
 .app-layout {
   display: flex;
@@ -84,7 +81,14 @@ input, select { font-family: var(--font-display); outline: none; border: none; }
   transition: var(--transition);
 }
 
-.main-area.sidebar-collapsed { margin-left: 70px; }
+/* ✅ Desktop only collapse */
+@media (min-width: 901px) {
+
+  .main-area.sidebar-collapsed {
+    margin-left: 70px;
+  }
+
+}
 
 .content-area {
   flex: 1;
@@ -94,71 +98,27 @@ input, select { font-family: var(--font-display); outline: none; border: none; }
 }
 
 /* Animations */
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-24px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px var(--accent-glow); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-@keyframes countUp {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+
+.animate-fade-up { 
+  animation: fadeInUp 0.5s ease forwards; 
 }
 
-.animate-fade-up { animation: fadeInUp 0.5s ease forwards; }
-.animate-fade { animation: fadeIn 0.4s ease forwards; }
+/* Card */
 
-/* Section heading */
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-.section-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-.section-subtitle {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  margin-top: 2px;
-}
-
-/* Card base */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
-  transition: var(--transition);
-}
-.card:hover {
-  border-color: var(--border-bright);
-  box-shadow: var(--shadow);
 }
 
 /* Badge */
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -168,38 +128,34 @@ input, select { font-family: var(--font-display); outline: none; border: none; }
   font-size: 0.72rem;
   font-weight: 600;
   font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-}
-.badge-income { background: rgba(106,247,184,0.12); color: var(--success); }
-.badge-expense { background: rgba(247,106,106,0.12); color: var(--danger); }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .main-area { margin-left: 0 !important; }
-  .content-area { padding: 20px 16px; padding-top: calc(var(--navbar-h) + 20px); }
 }
 
+.badge-income { 
+  background: rgba(106,247,184,0.12); 
+  color: var(--success); 
+}
 
-/* ===== FINAL MOBILE LAYOUT FIX ===== */
+.badge-expense { 
+  background: rgba(247,106,106,0.12); 
+  color: var(--danger); 
+}
+
+/* ✅ MOBILE FINAL FIX */
 
 @media (max-width: 900px) {
 
-  /* Remove sidebar spacing on mobile */
-  .main-area {
+  .main-area,
+  .main-area.sidebar-collapsed {
     margin-left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* Fix content alignment */
   .content-area {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 20px 16px;
+    padding-top: calc(var(--navbar-h) + 20px);
   }
 
-  /* Prevent page horizontal shift */
   html,
   body,
   #root,
