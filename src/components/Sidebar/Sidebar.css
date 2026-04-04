@@ -116,7 +116,22 @@
   letter-spacing: 0.05em;
 }
 
+
+
 @media (max-width: 900px) {
-  .sidebar { transform: translateX(-100%); }
-  .sidebar.open { transform: translateX(0); }
+
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-w);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* IMPORTANT — remove collapsed width issue */
+  .sidebar.collapsed {
+    width: var(--sidebar-w);
+  }
+
 }
