@@ -194,3 +194,98 @@
 .empty-icon { font-size: 3rem; margin-bottom: 12px; }
 .empty-state p { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
 .empty-state span { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* MOBILE FIX — Transactions full width show */
+
+@media (max-width: 768px) {
+
+  /* Section padding fix */
+  .transactions-section {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Toolbar stacking */
+  .tx-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-wrap {
+    min-width: 100%;
+  }
+
+  .filter-toggle,
+  .sort-select {
+    width: 100%;
+  }
+
+  /* TABLE → CARD layout */
+  .tx-table thead {
+    display: none;
+  }
+
+  .tx-table,
+  .tx-table tbody,
+  .tx-table tr,
+  .tx-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .tx-row {
+    background: var(--bg-card);
+    margin-bottom: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 12px;
+  }
+
+  .tx-table td {
+    padding: 6px 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Labels before values */
+  .tx-table td::before {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .td-date::before {
+    content: "Date";
+  }
+
+  .td-title::before {
+    content: "Title";
+  }
+
+  .td-title {
+    word-break: break-word;
+  }
+
+  .category-chip::before {
+    content: none;
+  }
+
+  .td-amount::before {
+    content: "Amount";
+  }
+
+  .td-actions {
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+
+  /* Remove horizontal scroll */
+  .tx-table-wrap {
+    overflow-x: hidden;
+  }
+
+}
